@@ -4,7 +4,7 @@ from tkinter import filedialog
 
 from PIL import ImageTk, Image
 
-from local import info, home
+from OldStuff.local import info, home
 
 img2 = None
 

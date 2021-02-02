@@ -3,7 +3,7 @@ from tkinter import Tk
 from PIL import ImageTk, Image
 from connection import connection
 
-from local import info
+from OldStuff.local import info
 
 
 def main(wg=None, window=None):

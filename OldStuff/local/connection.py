@@ -4,7 +4,7 @@ from socket import AF_INET, socket, SOCK_STREAM
 
 from PIL import Image
 
-from local import info
+from OldStuff.local import info
 
 
 def send_msg(sock, msg):
@@ -91,7 +91,7 @@ class connection:
         print("Received team - " + self.team)
 
         send_msg(self.SERVER, info.name.get())
-        send_img(self.SERVER, "./data/your img.png")
+        send_img(self.SERVER, "data/your img.png")
 
         print("Sent Player Name and Player Image")
 

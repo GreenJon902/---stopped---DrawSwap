@@ -1,8 +1,8 @@
 from threading import Thread
 
-from host import graphics
-from host.dataTransfer import *
-from host.room import ROOM
+from OldStuff.host import graphics
+from OldStuff.host.dataTransfer import *
+from OldStuff.host import ROOM
 
 rooms = {}
 graphics = graphics.GRAPHICS()

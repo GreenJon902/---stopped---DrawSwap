@@ -2,7 +2,8 @@ import tkinter as Tk
 
 from PIL import Image, ImageTk
 
-from local import info, options, stats, join
+from OldStuff.local import join
+from OldStuff.local import info, stats, options
 
 
 def oppClicked(c):
