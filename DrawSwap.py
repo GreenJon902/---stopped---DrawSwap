@@ -1,13 +1,10 @@
 import os
 import pathlib
-from multiprocessing import freeze_support
 from shutil import copyfile
 
 import AppInfo
 
 if __name__ == "__main__":
-    freeze_support()
-
     if not os.path.exists(AppInfo.user_data_dir):
         os.makedirs(AppInfo.user_data_dir)
 
