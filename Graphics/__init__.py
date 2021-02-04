@@ -3,8 +3,8 @@ import os
 from kivy.logger import Logger
 from kivy.lang import Builder
 
-from . import drawSwap
-from .. import AppInfo
+import AppInfo
+from Graphics.drawSwap import DrawSwap
 
 
 def load_kv():
@@ -16,6 +16,6 @@ def load_kv():
 def start():
     Logger.info("Graphics are starting")
 
-
+    app = DrawSwap()
 
     Logger.info("Graphics have ended")

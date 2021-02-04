@@ -21,9 +21,6 @@ if __name__ == "__main__":
     os.environ["KCFG_KIVY_LOG_DIR"] = AppInfo.log_dir
     os.environ["KCFG_KIVY_LOG_LEVEL"] = "info"
 
-
-    import kivy
-    from kivy import *
     from kivy.logger import Logger
 
     Logger.info("Base: kivy module fully loaded")
