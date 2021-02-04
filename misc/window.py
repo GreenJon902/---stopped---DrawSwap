@@ -1,5 +1,7 @@
-resizable = True
-_last_size = (100, 100)
+import AppInfo
+
+resizable: bool = True
+_last_size: [int] = int(AppInfo.default_size[0]), int(AppInfo.default_size[1])
 
 
 def on_resize(window, width, height):
