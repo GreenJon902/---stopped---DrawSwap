@@ -8,8 +8,8 @@ if __name__ == "__main__":
     if not os.path.exists(AppInfo.user_data_dir):
         os.makedirs(AppInfo.user_data_dir)
 
-    if not os.path.exists(AppInfo.settings_file):
-        copyfile(AppInfo.default_settings_file, AppInfo.settings_file)
+    #if not os.path.exists(AppInfo.settings_file):
+    copyfile(AppInfo.default_settings_file, AppInfo.settings_file)
 
     from staticConfigurables import settings
 
