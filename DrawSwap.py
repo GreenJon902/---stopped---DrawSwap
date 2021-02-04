@@ -8,15 +8,16 @@ if __name__ == "__main__":
     if not os.path.exists(AppInfo.user_data_dir):
         os.makedirs(AppInfo.user_data_dir)
 
-    if not os.path.exists(AppInfo.user_data_file):
-        copyfile(AppInfo.default_user_data_file, AppInfo.user_data_file)
+    if not os.path.exists(AppInfo.settings_file):
+        copyfile(AppInfo.default_settings_file, AppInfo.settings_file)
+
+    from staticConfigurables import settings
 
     os.chdir(pathlib.Path(__file__).parent.absolute())
-    os.environ["KIVY_NO_ARGS"] = "1"
     os.environ["KIVY_HOME"] = AppInfo.kivy_home_dir
-    os.environ["KCFG_KIVY_LOG_NAME"] = "%y-%m-%d_%_.log"
+    os.environ["KCFG_KIVY_LOG_NAME"] = settings.get("debug", "log_name")
     os.environ["KCFG_KIVY_LOG_DIR"] = AppInfo.log_dir
-    os.environ["KCFG_KIVY_LOG_LEVEL"] = "info"
+    os.environ["KCFG_KIVY_LOG_LEVEL"] = settings.get("debug", "log_level")
 
     from kivy.logger import Logger
 
