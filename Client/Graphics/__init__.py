@@ -1,1 +1,1 @@
-from drawSwap import *
+from . import drawSwap
