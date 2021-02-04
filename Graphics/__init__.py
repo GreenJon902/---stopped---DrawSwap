@@ -17,5 +17,6 @@ def start():
     Logger.info("Graphics are starting")
 
     app = DrawSwap()
+    app.run()
 
     Logger.info("Graphics have ended")
