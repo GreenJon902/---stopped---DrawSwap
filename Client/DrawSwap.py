@@ -31,4 +31,11 @@ if __name__ == "__main__":
 
     import Graphics
 
+    Graphics.load_kv()
+    Logger.info("Base: kv_language loaded")
+
     Logger.info("Base: Graphics fully loaded")
+
+    Graphics.start()
+
+    Logger.info("Base: App has finished!")
