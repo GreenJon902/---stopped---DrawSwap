@@ -4,7 +4,7 @@ from socket import AF_INET, socket, SOCK_STREAM
 
 from PIL import Image
 
-from OldStuff.local import info
+import info
 
 
 def send_msg(sock, msg):

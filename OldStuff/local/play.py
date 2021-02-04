@@ -1,4 +1,4 @@
-from OldStuff.local import join
+import join
 
 
 def main():

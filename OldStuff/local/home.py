@@ -2,8 +2,8 @@ import tkinter as Tk
 
 from PIL import Image, ImageTk
 
-from OldStuff.local import join
-from OldStuff.local import info, stats, options
+import join
+import info, stats, options
 
 
 def oppClicked(c):
@@ -25,7 +25,6 @@ def main(wg=None, window=None):
         window = Tk.Tk()
         window.title(info.windowName)
         window.geometry("600x492")
-        window.iconbitmap(default="data/img.ico")
         window.configure(background="#2b2b2b")
         window.resizable(False, False)
 

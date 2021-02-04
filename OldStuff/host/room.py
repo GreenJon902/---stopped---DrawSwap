@@ -1,6 +1,6 @@
 from random import shuffle
 
-from OldStuff.host.dataTransfer import *
+from dataTransfer import *
 
 
 class ROOM:

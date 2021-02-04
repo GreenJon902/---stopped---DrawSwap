@@ -2,7 +2,7 @@ import tkinter as Tk
 
 from PIL import ImageTk, Image
 
-from OldStuff.local import info, home
+import info, home
 
 
 def main(wg=None, window=None):

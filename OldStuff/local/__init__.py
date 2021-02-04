@@ -1,4 +1,4 @@
-from OldStuff.local import home
+import home
 
 
 def main():
