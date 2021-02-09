@@ -6,7 +6,7 @@
         allow_stretch: True
         keep_ratio: True
 
-        source: root.video_source
+        source: staticConfigurables.textures.get("SplashScreen", "video")
         opacity: 0
 
         on_eos: root.video_finished()

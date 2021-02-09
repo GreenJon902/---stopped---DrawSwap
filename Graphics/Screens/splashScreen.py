@@ -6,8 +6,6 @@ import staticConfigurables
 
 
 class SplashScreen(Screen):
-    video_source = staticConfigurables.textures.get("SplashScreen", "video")
-
     def on_kv_post(self, base_widget):
         self.ids["video_player"].opacity = 0
 
