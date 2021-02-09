@@ -20,3 +20,5 @@ class SplashScreen(Screen):
 
     def video_finished(self, *args, **kwargs):
         Logger.info("SplashScreen: Video Finished")
+
+        self.parent.set_screen("TitleScreen")
