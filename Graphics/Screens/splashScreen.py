@@ -1,31 +1,18 @@
-import random
-
-from kivy.logger import Logger
-from kivy.graphics.context_instructions import Color
-from kivy.graphics.vertex_instructions import Rectangle
-from kivy.uix.image import Image
+from kivy.animation import Animation
 from kivy.uix.screenmanager import Screen
 
-from staticConfigurables import settings
+import staticConfigurables
 
 
 class SplashScreen(Screen):
-    def on_size(self, *args):
-        if settings.getboolean("debug", "graphics") or settings.getboolean("debug", "all"):
-            def walk(widget):
-                for child in widget.children:
-                    walk(child)
+    video_source = staticConfigurables.textures.get("SplashScreen", "video")
 
-                if widget.__class__ == Image:
-                    with widget.canvas:
-                        widget.canvas.clear()
+    def on_kv_post(self, *args, **kwargs):
+        self.ids["video_player"].opacity = 0
 
-                        col = random.random(), random.random(), random.random()
-                        Color(rgb=col)
-                        Logger.debug("graphics: SplashScreen image random and size - " +
-                                     str([col, widget.pos, widget.size]))
+        a = Animation(opacity=1, duration=staticConfigurables.graphics.getint("SplashScreen", "fade_in_length"))
+        a.bind(on_complete=self.start_video)
+        a.start(self.ids["video_player"])
 
-                        Rectangle(pos=widget.pos, size=widget.size)
-
-            for child in self.children:
-                walk(child)
+    def start_video(self, *args, **kwargs):
+        self.ids["video_player"].state = "play"
