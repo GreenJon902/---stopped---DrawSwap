@@ -6,7 +6,7 @@ import staticConfigurables
 
 
 class SplashScreen(Screen):
-    def on_kv_post(self, base_widget):
+    def on_enter(self, *args):
         self.ids["video_player"].opacity = 0
 
         Logger.info("SplashScreen: Video Started")

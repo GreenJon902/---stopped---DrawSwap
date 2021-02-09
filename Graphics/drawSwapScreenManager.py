@@ -12,6 +12,8 @@ class DrawSwapScreenManager(ScreenManager):
         Logger.info("ScreenManager: Using" + str(staticConfigurables.graphics.get("General", "transition")))
         self.transition = screenmanager.__dict__[str(staticConfigurables.graphics.get("General", "transition"))]()
 
+        self.current = "TitleScreen"
+
     def set_screen(self, screen_name):
         self.current = screen_name
 
