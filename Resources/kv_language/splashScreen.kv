@@ -3,6 +3,6 @@
         id: video_player
 
         source: root.video_source
-        opacity: 1
+        opacity: 0
 
-        on_loaded: print("Ya")
+        on_eos: root.video_finished()
