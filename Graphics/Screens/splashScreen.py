@@ -16,3 +16,4 @@ class SplashScreen(Screen):
 
     def start_video(self, *args, **kwargs):
         self.ids["video_player"].state = "play"
+        print(self.ids["video_player"].loaded)

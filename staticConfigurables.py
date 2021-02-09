@@ -1,8 +1,16 @@
+import os
 from configparser import ConfigParser
 
 import AppInfo
 
-textures = ConfigParser()
+
+class _textureConfigParser(ConfigParser):
+    def get(self, *args, **kwargs) -> str:
+        path = super(_textureConfigParser, self).get(*args, **kwargs)
+        return os.path.join(AppInfo.resources_dir, path)
+
+
+textures = _textureConfigParser()
 textures.read(AppInfo.texture_link_file)
 
 settings = ConfigParser(interpolation=None)

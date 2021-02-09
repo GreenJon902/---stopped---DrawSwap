@@ -15,9 +15,10 @@ if __name__ == "__main__":
 
     os.chdir(pathlib.Path(__file__).parent.absolute())
     os.environ["KIVY_HOME"] = AppInfo.kivy_home_dir
-    os.environ["KCFG_KIVY_LOG_NAME"] = settings.get("debug", "log_name")
+    os.environ["KCFG_KIVY_LOG_NAME"] = settings.get("Debug", "log_name")
     os.environ["KCFG_KIVY_LOG_DIR"] = AppInfo.log_dir
-    os.environ["KCFG_KIVY_LOG_LEVEL"] = settings.get("debug", "log_level")
+    os.environ["KCFG_KIVY_LOG_LEVEL"] = settings.get("Debug", "log_level")
+    os.environ["KCFG_KIVY_VIDEO"] = settings.get("Video", "player")
 
     from kivy.logger import Logger
 
