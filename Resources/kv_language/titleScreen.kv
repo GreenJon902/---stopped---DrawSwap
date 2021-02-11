@@ -16,3 +16,22 @@
 
         allow_stretch: True
         keep_ratio: True
+
+    BoxLayout:
+        size_hint: None, None
+        orientation: "vertical"
+
+        center: root.center
+
+        width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("TitleScreen", "content_size_relative_to_background_b_x")
+        height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("TitleScreen", "content_size_relative_to_background_b_y")
+
+        on_touch_down: print(self.size)
+
+        BoxLayout:
+            Label:
+                text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+
+                color: 0, 0, 0, 1
+                font_name: staticConfigurables.fonts.get("TitleScreen", "title")
+                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "title_text_size"))
