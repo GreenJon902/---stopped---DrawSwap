@@ -19,14 +19,21 @@
 
     BoxLayout:
         size_hint: None, None
+
         orientation: "vertical"
 
-        center: root.center
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
         width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("TitleScreen", "content_size_relative_to_background_b_x")
         height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("TitleScreen", "content_size_relative_to_background_b_y")
 
-        on_touch_down: print(self.size)
+        Label:
+            text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+
+            color: 0, 0, 0, 1
+            font_name: staticConfigurables.fonts.get("TitleScreen", "title")
+            font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "title_text_size"))
+
 
         BoxLayout:
             Label:
@@ -34,4 +41,28 @@
 
                 color: 0, 0, 0, 1
                 font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "title_text_size"))
+                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+
+
+            Label:
+                text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+
+                color: 0, 0, 0, 1
+                font_name: staticConfigurables.fonts.get("TitleScreen", "title")
+                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+
+        BoxLayout:
+            Label:
+                text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+
+                color: 0, 0, 0, 1
+                font_name: staticConfigurables.fonts.get("TitleScreen", "title")
+                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+
+
+            Label:
+                text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+
+                color: 0, 0, 0, 1
+                font_name: staticConfigurables.fonts.get("TitleScreen", "title")
+                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
