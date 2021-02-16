@@ -1,11 +1,9 @@
 from kivy.app import App
 from kivy.core.window import Window
 
-from Graphics.drawSwapScreenManager import DrawSwapScreenManager
-
-from Graphics.Screens.splashScreen import SplashScreen
-from Graphics.Screens.titleScreen import TitleScreen
 from misc import window
+
+from Graphics.drawSwapScreenManager import DrawSwapScreenManager
 
 
 class DrawSwap(App):

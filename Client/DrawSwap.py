@@ -26,6 +26,9 @@ if __name__ == "__main__":
 
     import Graphics
 
+    Graphics.setup()
+    Logger.info("Base: Graphics setup")
+
     Graphics.load_kv()
     Logger.info("Base: kv_language loaded")
 
