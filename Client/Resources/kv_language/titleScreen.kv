@@ -42,12 +42,12 @@
 
             size_hint_y: (1 - staticConfigurables.graphics.getfloat("TitleScreen", "title_text_height")) / 2
 
-            Button:
+            HoverButton:
                 background_normal: ''
                 background_color: 0, 0, 0, 0
 
                 on_press: print("press")
-                on_hover: print("hover")
+                on_mouse_over: print("hover")
 
                 BoxLayout:
                     orientation: "vertical"
