@@ -8,9 +8,9 @@ import staticConfigurables
 class TitleScreen(Screen):
     content_image = None
 
-    def get_button_hover_animation(self, direction: str, this, child):
+    def button_hover_animation(self, direction: str, this, child):
         if direction == "in":
-            return Animation(
+            a = Animation(
                 opacity=staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_opacity"),
                 size=(child.width * staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth"),
                       child.height * staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth")),
@@ -21,7 +21,7 @@ class TitleScreen(Screen):
                 duration=staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_animation_duration"))
 
         elif direction == "out":
-            return Animation(
+            a = Animation(
                 opacity=1,
                 size=this.size,
                 pos=this.pos,
@@ -29,6 +29,10 @@ class TitleScreen(Screen):
 
         else:
             Logger.error("TitleScreen: Get button hover animation called with incorrect direction " + str(direction))
+            return
+
+        Animation.stop_all(child)
+        a.start(child)
 
 
     def play_button_pressed(self):

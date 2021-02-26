@@ -49,8 +49,8 @@
                 background_color: 0, 0, 0, 0
 
                 on_press: root.play_button_pressed()
-                on_mouse_enter: for child in self.children: root.get_button_hover_animation("in", self, child).start(child)
-                on_mouse_leave: for child in self.children: root.get_button_hover_animation("out", self, child).start(child)
+                on_mouse_enter: for child in self.children: root.button_hover_animation("in", self, child)
+                on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
 
                 BoxLayout:
