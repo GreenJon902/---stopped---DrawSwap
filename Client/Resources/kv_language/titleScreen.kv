@@ -18,6 +18,8 @@
         keep_ratio: True
 
     BoxLayout:
+        id: content
+
         size_hint: None, None
 
         orientation: "vertical"
@@ -46,7 +48,7 @@
                 background_normal: ''
                 background_color: 0, 0, 0, 0
 
-                on_press: print("press")
+                on_press: root.play_button_pressed()
                 on_mouse_enter: for child in self.children: child.opacity = staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_opacity")
                 on_mouse_enter: for child in self.children: child.size = child.width * staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth"), child.height * staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth")
                 on_mouse_enter: for child in self.children: child.pos = self.x - self.width * (staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth") - 1) / 2, self.y - self.height * (staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_growth") - 1) / 2
