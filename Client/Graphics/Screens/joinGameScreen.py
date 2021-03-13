@@ -3,9 +3,10 @@ from kivy.properties import NumericProperty
 from kivy.uix.screenmanager import Screen
 
 import staticConfigurables
+from Graphics.screenWhichIncludesHoverButton import ScreenWhichIncludesHoverButton
 
 
-class JoinGameScreen(Screen):
+class JoinGameScreen(Screen, ScreenWhichIncludesHoverButton):
     background_c_width = NumericProperty()
 
     def on_enter(self, *args):
