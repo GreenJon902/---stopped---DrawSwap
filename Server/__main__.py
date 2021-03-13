@@ -5,3 +5,4 @@ if __name__ == "__main__":
 
     e = Entrance()
     e.start()
+    e.accept_incoming_connections()

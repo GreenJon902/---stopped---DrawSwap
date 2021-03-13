@@ -20,6 +20,7 @@ class Entrance:
         print("Socket is listening")
 
     def accept_incoming_connections(self):
+        print("Waiting for incoming connections")
         while True:
             client, client_address = self.s.accept()
             print(client, client_address)
