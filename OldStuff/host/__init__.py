@@ -3,7 +3,7 @@ from threading import Thread
 import graphics
 from dataTransfer import *
 from room import ROOM
-t
+
 rooms = {}
 graphics = graphics.GRAPHICS()
 threads = {}
