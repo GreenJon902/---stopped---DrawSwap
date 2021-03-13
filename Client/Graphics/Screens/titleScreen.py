@@ -41,4 +41,4 @@ class TitleScreen(Screen):
         self.content_image.uvsize = (1, -1)
         Logger.info("TitleScreen: Content exported as image for play screen")
 
-        self.parent.set_screen("PrePlayScreen")
+        self.parent.set_screen("PlayScreen")
