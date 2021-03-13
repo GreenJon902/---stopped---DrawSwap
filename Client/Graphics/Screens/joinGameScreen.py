@@ -2,6 +2,7 @@ from kivy.animation import Animation
 from kivy.properties import NumericProperty
 from kivy.uix.screenmanager import Screen
 
+import Connection
 import staticConfigurables
 from Graphics.screenWhichIncludesHoverButton import ScreenWhichIncludesHoverButton
 
@@ -23,4 +24,7 @@ class JoinGameScreen(Screen, ScreenWhichIncludesHoverButton):
     def hide_background_cd(self, *args, **kwargs):
         self.ids["background_c"].opacity = 0
         self.ids["background_d"].opacity = 0
+
+    def join_public(self):
+        Connection.join_public()
 

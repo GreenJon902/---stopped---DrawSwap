@@ -24,3 +24,6 @@ settings.read(AppInfo.settings_file)
 
 graphics = ConfigParser(interpolation=ExtendedInterpolation())
 graphics.read(AppInfo.graphics_file)
+
+connection = ConfigParser(interpolation=ExtendedInterpolation())
+connection.read(AppInfo.connection_file)

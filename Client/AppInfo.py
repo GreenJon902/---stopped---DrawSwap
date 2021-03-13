@@ -23,6 +23,7 @@ resources_dir: str = os.path.join(code_dir, "Resources")
 texture_link_file: str = os.path.join(resources_dir, "textureLink.ini")
 font_link_file: str = os.path.join(resources_dir, "fontLink.ini")
 graphics_file: str = os.path.join(resources_dir, "graphicsConfig.ini")
+connection_file: str = os.path.join(resources_dir, "connection.ini")
 texts_file: str = os.path.join(resources_dir, "texts.ini")
 kv_language_dir: str = os.path.join(resources_dir, "kv_language")
 log_dir: str = AppDirs.user_log_dir
@@ -33,4 +34,4 @@ __all__ = ["appname", "appauthor", "version", "roaming",
            "array",
            "user_data_dir", "kivy_home_dir", "config_dir", "code_dir", "default_settings_file", "settings_file",
            "log_dir", "resources_dir", "texture_link_file", "kv_language_dir", "graphics_file", "font_link_file",
-           "default_size", "texts_file"]
+           "default_size", "texts_file", "connection_file"]
