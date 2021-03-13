@@ -16,8 +16,8 @@ textures.read(AppInfo.texture_link_file)
 fonts = _pathConfigParser(interpolation=ExtendedInterpolation())
 fonts.read(AppInfo.font_link_file)
 
-f = _pathConfigParser(interpolation=ExtendedInterpolation())
-f.read(AppInfo.texts_file)
+texts = ConfigParser(interpolation=ExtendedInterpolation())
+texts.read(AppInfo.texts_file)
 
 settings = ConfigParser(interpolation=ExtendedInterpolation())
 settings.read(AppInfo.settings_file)

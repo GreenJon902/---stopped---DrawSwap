@@ -10,6 +10,7 @@ from Graphics.drawSwap import DrawSwap
 
 def load_kv():
     for filename in os.listdir(AppInfo.kv_language_dir):
+        Logger.debug("kv_loader: Loading " + str(filename))
         Builder.load_file(os.path.join(AppInfo.kv_language_dir, filename))
         Logger.debug("kv_loader: Loaded " + str(filename))
 
