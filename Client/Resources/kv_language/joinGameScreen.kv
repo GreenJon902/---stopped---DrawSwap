@@ -21,18 +21,24 @@
 
 
 
-
-
     BoxLayout:
-        orientation: "horizontal"
+        id: content
 
-        size_hint_y: (1 - staticConfigurables.texts.getfloat("JoinGameScreen", "title_text_height")) / 2
+        size_hint: None, None
+
+        orientation: "vertical"
+
+        pos_hint: {"center_x": staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_center_x"), "center_y": staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_center_y")}
+
+        width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_width")
+        height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_height")
+
 
         HoverButton:
             background_normal: ''
             background_color: 0, 0, 0, 0
 
-            on_press: root.play_button_pressed()
+            on_press: pass
             on_mouse_enter: for child in self.children: root.button_hover_animation("in", self, child)
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
@@ -47,7 +53,7 @@
             background_normal: ''
             background_color: 0, 0, 0, 0
 
-            on_press: root.play_button_pressed()
+            on_press: pass
             on_mouse_enter: for child in self.children: root.button_hover_animation("in", self, child)
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
@@ -62,7 +68,7 @@
             background_normal: ''
             background_color: 0, 0, 0, 0
 
-            on_press: root.play_button_pressed()
+            on_press: pass
             on_mouse_enter: for child in self.children: root.button_hover_animation("in", self, child)
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
