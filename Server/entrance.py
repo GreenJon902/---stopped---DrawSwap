@@ -22,5 +22,5 @@ class Entrance:
     def accept_incoming_connections(self):
         print("Waiting for incoming connections")
         while True:
-            client, client_address = self.s.accept()
-            print(client, client_address)
+            c, addr = self.s.accept()
+            print("Incoming connection from", addr)
