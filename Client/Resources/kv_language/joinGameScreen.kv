@@ -1,5 +1,6 @@
 <JoinGameScreen>:
-    on_pre_enter: background_c.texture = app.root.get_screen("TitleScreen").content_image
+    on_pre_enter: background_c.texture = app.root.get_screen("TitleScreen").background_b_image
+    on_pre_enter: background_d.texture = app.root.get_screen("TitleScreen").content_image
 
     Image:
         id: background_a
@@ -89,10 +90,25 @@
 
 
 
-
-
     Image:
         id: background_c
+
+        source: staticConfigurables.textures.get("JoinGameScreen", "background_b")
+
+        pos_hint: {"center_y": staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_center_y")}
+
+        x: (background_b.center_x - background_b.norm_image_size[0] / 2) + (background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("Background", "page_binder_x"))
+
+        width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_width")
+        height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_height")
+
+        size_hint: None, None
+
+        allow_stretch: True
+        keep_ratio: False
+
+    Image:
+        id: background_d
 
         pos_hint: {"center_y": staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_center_y")}
 

@@ -7,18 +7,20 @@ from Graphics.screenWhichIncludesHoverButton import ScreenWhichIncludesHoverButt
 
 
 class JoinGameScreen(Screen, ScreenWhichIncludesHoverButton):
-    background_c_width = NumericProperty()
+    background_cd_width = NumericProperty()
 
     def on_enter(self, *args):
-        self.background_c_width = self.ids["background_c"].width
-        a = Animation(background_c_width=0, duration=staticConfigurables.graphics.getfloat("JoinGameScreen",
-                                                                                           "page_turn_speed"))
-        a.bind(on_complete=self.hide_background_c)
+        self.background_cd_width = self.ids["background_c"].width
+        a = Animation(background_cd_width=0, duration=staticConfigurables.graphics.getfloat("JoinGameScreen",
+                                                                                            "page_turn_speed"))
+        a.bind(on_complete=self.hide_background_cd)
         a.start(self)
 
-    def on_background_c_width(self, _, width):
+    def on_background_cd_width(self, _, width):
         self.ids["background_c"].width = width
+        self.ids["background_d"].width = width
 
-    def hide_background_c(self, *args, **kwargs):
+    def hide_background_cd(self, *args, **kwargs):
         self.ids["background_c"].opacity = 0
+        self.ids["background_d"].opacity = 0
 
