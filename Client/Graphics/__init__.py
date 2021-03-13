@@ -17,6 +17,7 @@ def load_kv():
 def setup():
     from Graphics.Screens.splashScreen import SplashScreen
     from Graphics.Screens.titleScreen import TitleScreen
+    from Graphics.Screens.prePlayScreen import PrePlayScreen
     from Graphics.drawSwapScreenManager import DrawSwapScreenManager
     from Graphics.hoverButton import HoverButton
 
@@ -25,6 +26,7 @@ def setup():
     Factory.register("DrawSwap", cls=DrawSwap)
     Factory.register("SplashScreen", cls=SplashScreen)
     Factory.register("TitleScreen", cls=TitleScreen)
+    Factory.register("PlayScreen", cls=PrePlayScreen)
 
     Logger.info("All classes have been assigned to Factory")
 
