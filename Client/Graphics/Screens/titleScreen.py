@@ -13,7 +13,6 @@ class TitleScreen(Screen, ScreenWhichIncludesHoverButton):
 
     def play_button_pressed(self):
         for widget in self.walk():
-            print(widget.__class__)
             if widget.__class__ == HoverButton:
                 widget.disabled = True
                 widget.mouse_over = False
