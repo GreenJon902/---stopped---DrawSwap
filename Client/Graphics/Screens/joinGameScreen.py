@@ -5,14 +5,14 @@ from kivy.uix.screenmanager import Screen
 import staticConfigurables
 
 
-class PlayScreen(Screen):
+class JoinGameScreen(Screen):
     background_c_width = NumericProperty()
 
     def on_enter(self, *args):
         print(self.ids["background_c"].pos)
 
         self.background_c_width = self.ids["background_c"].width
-        a = Animation(background_c_width=0, duration=staticConfigurables.graphics.getfloat("PlayScreen",
+        a = Animation(background_c_width=0, duration=staticConfigurables.graphics.getfloat("JoinGameScreen",
                                                                                            "page_turn_speed"))
         a.start(self)
 

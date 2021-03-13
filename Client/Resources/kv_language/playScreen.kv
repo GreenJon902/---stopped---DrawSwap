@@ -1,10 +1,10 @@
-<PlayScreen>:
+<JoinGameScreen>:
     on_pre_enter: background_c.texture = app.root.get_screen("TitleScreen").content_image
 
     Image:
         id: background_a
 
-        source: staticConfigurables.textures.get("PlayScreen", "background_a")
+        source: staticConfigurables.textures.get("JoinGameScreen", "background_a")
 
         allow_stretch: True
         keep_ratio: False
@@ -14,7 +14,7 @@
     Image:
         id: background_b
 
-        source: staticConfigurables.textures.get("PlayScreen", "background_b")
+        source: staticConfigurables.textures.get("JoinGameScreen", "background_b")
 
         allow_stretch: True
         keep_ratio: True
@@ -22,12 +22,12 @@
     Image:
         id: background_c
 
-        pos_hint: {"center_y": staticConfigurables.graphics.getfloat("PlayScreen", "content_size_relative_to_background_b_center_y")}
+        pos_hint: {"center_y": staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_center_y")}
 
         x: (background_b.center_x - background_b.norm_image_size[0] / 2) + (background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("Background", "page_binder_x"))
 
-        width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("PlayScreen", "content_size_relative_to_background_b_width")
-        height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("PlayScreen", "content_size_relative_to_background_b_height")
+        width: background_b.norm_image_size[0] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_width")
+        height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("JoinGameScreen", "content_size_relative_to_background_b_height")
 
         size_hint: None, None
 
