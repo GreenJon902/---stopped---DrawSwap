@@ -19,8 +19,6 @@
         allow_stretch: True
         keep_ratio: True
 
-
-
     BoxLayout:
         id: content
 
@@ -43,6 +41,9 @@
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
             Label:
+                pos: self.parent.pos
+                size: self.parent.size
+
                 text: staticConfigurables.texts.get("JoinGameScreen", "join_public")
 
                 color: 0, 0, 0, 1
@@ -58,6 +59,9 @@
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
             Label:
+                pos: self.parent.pos
+                size: self.parent.size
+
                 text: staticConfigurables.texts.get("JoinGameScreen", "join_with_code")
 
                 color: 0, 0, 0, 1
@@ -73,6 +77,9 @@
             on_mouse_leave: for child in self.children: root.button_hover_animation("out", self, child)
 
             Label:
+                pos: self.parent.pos
+                size: self.parent.size
+
                 text: staticConfigurables.texts.get("JoinGameScreen", "host")
 
                 color: 0, 0, 0, 1
