@@ -30,19 +30,19 @@
         height: background_b.norm_image_size[1] * staticConfigurables.graphics.getfloat("TitleScreen", "content_size_relative_to_background_b_height")
 
         Label:
-            text: staticConfigurables.graphics.get("TitleScreen", "title_text")
+            text: staticConfigurables.texts.get("TitleScreen", "title_text")
 
             color: 0, 0, 0, 1
             font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-            font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "title_text_size"))
+            font_size: font_size(staticConfigurables.texts.getint("TitleScreen", "title_text_size"))
 
-            size_hint_y: staticConfigurables.graphics.getfloat("TitleScreen", "title_text_height")
+            size_hint_y: staticConfigurables.texts.getfloat("TitleScreen", "title_text_height")
 
 
         BoxLayout:
             orientation: "horizontal"
 
-            size_hint_y: (1 - staticConfigurables.graphics.getfloat("TitleScreen", "title_text_height")) / 2
+            size_hint_y: (1 - staticConfigurables.texts.getfloat("TitleScreen", "title_text_height")) / 2
 
             HoverButton:
                 background_normal: ''
@@ -72,34 +72,34 @@
 
                         color: 0, 0, 0, 1
                         font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-                        font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+                        font_size: font_size(staticConfigurables.texts.getint("TitleScreen", "text_size"))
 
                         size_hint_y: 1 - staticConfigurables.graphics.getfloat("TitleScreen", "button_image_height")
 
 
             Label:
-                text: staticConfigurables.graphics.get("TitleScreen", "button_not_implemented_text")
+                text: staticConfigurables.texts.get("TitleScreen", "button_not_implemented_text")
 
                 color: 0, 0, 0, 1
                 font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+                font_size: font_size(staticConfigurables.texts.getint("TitleScreen", "text_size"))
 
         BoxLayout:
             orientation: "horizontal"
 
-            size_hint_y: (1 - staticConfigurables.graphics.getfloat("TitleScreen", "title_text_height")) / 2
+            size_hint_y: (1 - staticConfigurables.texts.getfloat("TitleScreen", "title_text_height")) / 2
 
             Label:
-                text: staticConfigurables.graphics.get("TitleScreen", "button_not_implemented_text")
+                text: staticConfigurables.texts.get("TitleScreen", "button_not_implemented_text")
 
                 color: 0, 0, 0, 1
                 font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+                font_size: font_size(staticConfigurables.texts.getint("TitleScreen", "text_size"))
 
 
             Label:
-                text: staticConfigurables.graphics.get("TitleScreen", "button_not_implemented_text")
+                text: staticConfigurables.texts.get("TitleScreen", "button_not_implemented_text")
 
                 color: 0, 0, 0, 1
                 font_name: staticConfigurables.fonts.get("TitleScreen", "title")
-                font_size: font_size(staticConfigurables.graphics.getint("TitleScreen", "text_size"))
+                font_size: font_size(staticConfigurables.texts.getint("TitleScreen", "text_size"))
