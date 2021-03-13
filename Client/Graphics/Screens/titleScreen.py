@@ -1,7 +1,9 @@
+from kivy.clock import Clock
 from kivy.logger import Logger
 from kivy.uix.screenmanager import Screen
 
 import staticConfigurables
+from Graphics.hoverButton import HoverButton
 from Graphics.screenWhichIncludesHoverButton import ScreenWhichIncludesHoverButton
 
 
@@ -10,8 +12,15 @@ class TitleScreen(Screen, ScreenWhichIncludesHoverButton):
     background_b_image = None
 
     def play_button_pressed(self):
+        for widget in self.walk():
+            print(widget.__class__)
+            if widget.__class__ == HoverButton:
+                widget.disabled = True
+                widget.mouse_over = False
+                widget.dispatch("on_mouse_leave", (0, 0), widget)
+        Clock.schedule_once(self.leave, staticConfigurables.graphics.getfloat("TitleScreen", "button_hover_animation_duration"))
 
-
+    def leave(self, *args, **kwargs):
         self.content_image = self.ids["content"].export_as_image().texture
 
         self.content_image.uvpos = (0, 1)
