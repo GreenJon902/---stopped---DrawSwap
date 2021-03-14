@@ -24,7 +24,7 @@ if __name__ == "__main__":
     from kivy.logger import Logger
 
     from kivy.logger import Logger
-    import  misc.loggerWithTime
+    import misc.loggerWithTime
 
     Logger.info("Base: kivy module fully loaded")
 

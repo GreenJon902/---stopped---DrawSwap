@@ -5,11 +5,16 @@ import sys
 
 class TimeFormatter(logging.Formatter):
     converter = datetime.datetime.fromtimestamp
+    begin_time = datetime.datetime.now().strftime("%s")
 
     def formatTime(self, record, datefmt=None):
         ct = self.converter(record.created)
         if datefmt:
             s = ct.strftime(datefmt)
+            dSecs = int(s[:-7]) - int(self.begin_time)
+            aSecs = str(s[:-7])[-2:]
+            msecs = s[-6:-3]
+            s = str(dSecs) + " | " + str(aSecs) + " " + msecs
         else:
             t = ct.strftime("%Y-%m-%d %H:%M:%S")
             s = "%s,%03d" % (t, record.msecs)
@@ -17,7 +22,7 @@ class TimeFormatter(logging.Formatter):
 
 
 logFormatter = TimeFormatter("[%(threadName)-12.12s] [%(levelname)-7s] [%(name)-10s] [%(asctime)s]  %(message)s",
-                           datefmt='%f')
+                             datefmt='%s %f')
 rootLogger = logging.getLogger()
 rootLogger.setLevel(logging.DEBUG)
 

@@ -27,8 +27,8 @@ class LoggerWithTime:
         # we do not use the formatter by purpose as it runs on failure
         # if the message string contains format characters
         ct = self.converter(record.created)
-        t = str(int(ct.strftime("%s")) - int(self.begin_time)) + " " +  str(int(record.msecs))
-
+        t = str(int(ct.strftime("%s")) - int(self.begin_time)) + " | " + ct.strftime("%s")[-2:] + " " + str(
+            int(record.msecs))
 
         msg = record.msg.split(':', 1)
         if len(msg) == 2:
