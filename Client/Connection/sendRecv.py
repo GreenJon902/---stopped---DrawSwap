@@ -10,7 +10,7 @@ def recv(sock):
 
     msglen = struct.unpack('>I', raw_msglen)[0]
     data = recall(sock, msglen).decode()
-    Logger.debug("SendRecv: Received " + str(recall(sock, msglen).decode()))
+    Logger.debug("SendRecv: Received " + str(data))
     return data
 
 
