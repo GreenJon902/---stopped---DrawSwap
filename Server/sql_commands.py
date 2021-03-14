@@ -9,3 +9,9 @@ CREATE TABLE Users (
 )
 """
 
+make_new_games_table = """
+CREATE TABLE Games (
+    id int
+)
+"""
+

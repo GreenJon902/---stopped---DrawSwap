@@ -1,7 +1,6 @@
 import os
 from configparser import ConfigParser
 
-
 is_in_dev = True
 
 save_folder = "DrawSwapServer"
@@ -15,8 +14,14 @@ default = """
 port = 42069
 
 [Database]
-name = database.db
+name = DrawSwap.db
 """
+
+sql_login = {
+    "host": "localhost",
+    "user": "root",
+    "password": "12345678"
+}
 
 
 def make_new():
