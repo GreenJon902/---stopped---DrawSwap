@@ -1,3 +1,4 @@
+import logging
 import os
 import pathlib
 from shutil import copyfile
@@ -8,7 +9,7 @@ if __name__ == "__main__":
     if not os.path.exists(AppInfo.user_data_dir):
         os.makedirs(AppInfo.user_data_dir)
 
-    #if not os.path.exists(AppInfo.settings_file):
+    # if not os.path.exists(AppInfo.settings_file):
     copyfile(AppInfo.default_settings_file, AppInfo.settings_file)
 
     from staticConfigurables import settings
@@ -19,10 +20,13 @@ if __name__ == "__main__":
     os.environ["KCFG_KIVY_LOG_DIR"] = AppInfo.log_dir
     os.environ["KCFG_KIVY_LOG_LEVEL"] = settings.get("Debug", "log_level")
 
+    import kivy
     from kivy.logger import Logger
 
-    Logger.info("Base: kivy module fully loaded")
+    from kivy.logger import Logger
+    import  misc.loggerWithTime
 
+    Logger.info("Base: kivy module fully loaded")
 
     import Graphics
 
