@@ -1,7 +1,16 @@
-from entrance import Entrance
-
 if __name__ == "__main__":
-    print("Starting DrawSwap server!")
+    import logger
+    logger.rootLogger.info("Starting...")
+
+    import logging
+    mainLogger = logging.getLogger("Main")
+
+    from loggerFunctions import info
+    from entrance import Entrance
+
+    info(mainLogger, "Imported all modules!")
+
+    info(mainLogger, "Starting DrawSwap server!")
 
     e = Entrance()
     e.start()

@@ -1,8 +1,12 @@
+import logging
 import socket
 import uuid
 
 from config import config
 from functions import recv, send
+from loggerFunctions import info
+
+logger = logging.getLogger("Entrance")
 
 
 class Entrance:
@@ -10,38 +14,38 @@ class Entrance:
         self.port = config.getint("ServerSettings", "port")
         self.s = None
 
-        print("Entrance is initiated")
+        info(logger, "Entrance is initiated")
 
     def start(self):
         self.s = socket.socket()
 
         self.s.bind(("", self.port))
-        print("Socket bound to", self.port)
+        info(logger, "Socket bound to", self.port)
 
         self.s.listen(5)
-        print("Socket is listening")
+        info(logger, "Socket is listening")
 
     def accept_incoming_connections(self):
-        print("Waiting for incoming connections\n")
+        info(logger, "Waiting for incoming connections\n")
         while True:
             c, addr = self.s.accept()
-            print("Incoming connection from", addr)
+            info(logger, "Incoming connection from", addr)
 
             request = int(recv(c))
-            print("Request Code", request, "was received")
+            info(logger, "Request Code", request, "was received")
 
             # 1 - request new uuid
 
             if request == 1:
-                print("Code", request, "means that a new uuid was requested by the client")
+                info(logger, "Code", request, "means that a new uuid was requested by the client")
 
                 new_uuid = uuid.uuid4()
-                print("Generated new uuid -", new_uuid)
+                info(logger, "Generated new uuid -", new_uuid)
                 send(c, new_uuid)
 
                 password = recv(c)
-                print("Received password")
+                info(logger, "Received password")
 
                 c.close()
 
-            print()
+            info(logger, )
