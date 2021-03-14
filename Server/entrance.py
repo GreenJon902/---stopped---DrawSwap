@@ -42,4 +42,6 @@ class Entrance:
                 password = recv(c)
                 print("Received password")
 
+                c.close()
+
             print()

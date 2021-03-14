@@ -1,32 +1,38 @@
-import struct
+import socket
+
+from kivy.logger import Logger
+
+from Connection import requests
+from settings import Settings
+from staticConfigurables import connection
 
 
-def recv(sock):
-    raw_msglen = recall(sock, 4)
-
-    if not raw_msglen:
-        return None
-
-    msglen = struct.unpack('>I', raw_msglen)[0]
-    return recall(sock, msglen).decode()
+def get_ip():
+    return connection.get("Server", "ip")
 
 
-def recall(sock, n):
-    data = bytearray()
-
-    while len(data) < n:
-        packet = sock.recv(n - len(data))
-        if not packet:
-            return None
-
-        data.extend(packet)
-
-    return data
+def get_port():
+    return connection.getint("Server", "port")
 
 
-def send(sock, msg):
-    msg = str(msg).encode()
+def connect_to_server():
+    uuid = Settings.get("Account", "uuid")
+    password = Settings.get("Account", "password")
 
-    msg = struct.pack('>I', len(msg)) + msg
-    sock.sendall(msg)
+    if uuid == "None":
+        Logger.info("Connection: No uuid found")
 
+        s = _connect_to_server()
+
+        requests.new_uuid(s)
+        s.close()
+
+    return _connect_to_server()
+
+
+def _connect_to_server():
+    s = socket.socket()
+
+    Logger.info("Connection: Connecting to " + str((get_ip(), get_port())))
+    s.connect((get_ip(), get_port()))
+    return s
