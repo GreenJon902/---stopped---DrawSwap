@@ -13,13 +13,14 @@ def new_uuid(s):
     password = "".join(random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                                      ) for i in range(16))
     Settings.set("Account", "password", password)
+    Logger.info("Connection: Saved password")
 
     send(s, "1")
     Logger.info("Connection: New uuid requested")
 
     new_uuid = recv(s)
     Settings.set("Account", "uuid", new_uuid)
-    Logger.info("Connection: New uuid received")
+    Logger.info("Connection: New uuid received and saved")
 
     send(s, password)
     Logger.info("Connection: Sent password")
