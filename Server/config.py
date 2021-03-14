@@ -1,7 +1,7 @@
 import os
 from configparser import ConfigParser
 
-is_in_dev = True
+dev_mode = True
 
 save_folder = "DrawSwapServer"
 log_folder = os.path.join(save_folder, "Logs")
@@ -20,11 +20,12 @@ name = DrawSwap.db
 sql_login = {
     "host": "localhost",
     "user": "root",
-    "password": "12345678"
+    "password": "12345678",
+    "database": "DrawSwap"
 }
 
 
-def make_new():
+def make_new(dev_mode):
     with open(os.path.join(save_folder, "config.ini"), "w") as f:
         f.write(default)
 

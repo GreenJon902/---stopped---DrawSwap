@@ -4,7 +4,7 @@ import shutil
 import config
 
 if __name__ == "__main__":
-    if config.is_in_dev:
+    if config.dev_mode:
         print("Dev mode activated")
 
         shutil.rmtree(config.save_folder)
@@ -16,7 +16,7 @@ if __name__ == "__main__":
         make_new = True
         os.makedirs(config.save_folder)
         os.makedirs(config.log_folder)
-        config.make_new()
+        config.make_new(config.dev_mode)
 
     import logger
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     info(mainLogger, "Imported all modules!")
 
-    sql.make_new()
+    sql.make_new(config.dev_mode)
 
     info(mainLogger, "Starting DrawSwap server!")
 
