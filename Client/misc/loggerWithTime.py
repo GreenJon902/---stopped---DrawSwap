@@ -1,15 +1,16 @@
 # thanks to https://groups.google.com/g/kivy-users/c/0M9uaXCC8XA/m/UZd-koocmFsJ
-
-
+import datetime
 import logging
-import time
 
 from kivy import Logger
 
 
 class LoggerWithTime:
+    converter = datetime.datetime.fromtimestamp
 
     def __init__(self):
+        self.begin_time = datetime.datetime.now().strftime("%s")
+
         self.emit_org = None
 
         # we create a formatter object once to avoid
@@ -25,8 +26,9 @@ class LoggerWithTime:
     def emit(self, record):
         # we do not use the formatter by purpose as it runs on failure
         # if the message string contains format characters
+        ct = self.converter(record.created)
+        t = str(int(ct.strftime("%s")) - int(self.begin_time)) + " " +  str(int(record.msecs))
 
-        t = str(int(record.msecs))
 
         msg = record.msg.split(':', 1)
         if len(msg) == 2:

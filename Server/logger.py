@@ -1,7 +1,23 @@
+import datetime
 import logging
 import sys
 
-logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s][%(levelname)-5.5s][%(name)-10s]  %(message)s")
+
+class TimeFormatter(logging.Formatter):
+    converter = datetime.datetime.fromtimestamp
+
+    def formatTime(self, record, datefmt=None):
+        ct = self.converter(record.created)
+        if datefmt:
+            s = ct.strftime(datefmt)
+        else:
+            t = ct.strftime("%Y-%m-%d %H:%M:%S")
+            s = "%s,%03d" % (t, record.msecs)
+        return s
+
+
+logFormatter = TimeFormatter("[%(threadName)-12.12s] [%(levelname)-7s] [%(name)-10s] [%(asctime)s]  %(message)s",
+                           datefmt='%f')
 rootLogger = logging.getLogger()
 rootLogger.setLevel(logging.DEBUG)
 
