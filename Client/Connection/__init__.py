@@ -9,3 +9,4 @@ def join_public():
     connect_to_server()
 
 
+__all__ = ["join_public"]

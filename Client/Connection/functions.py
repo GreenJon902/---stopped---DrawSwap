@@ -36,3 +36,6 @@ def _connect_to_server():
     Logger.info("Connection: Connecting to " + str((get_ip(), get_port())))
     s.connect((get_ip(), get_port()))
     return s
+
+
+__all__ = ["get_ip", "get_port", "connect_to_server"]

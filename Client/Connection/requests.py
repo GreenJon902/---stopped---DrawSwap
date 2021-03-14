@@ -27,3 +27,6 @@ def new_uuid(s):
     with open(AppInfo.settings_file, 'w') as settingsfile:  # save
         Settings.write(settingsfile)
     Logger.info("Connection: Saved uuid and password")
+
+
+__all__ = ["new_uuid"]
