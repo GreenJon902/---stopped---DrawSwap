@@ -2,7 +2,7 @@ import logging
 import socket
 import uuid
 
-from config import config
+from config import Config
 from functions import recv, send
 from loggerFunctions import info
 
@@ -11,7 +11,7 @@ logger = logging.getLogger("Entrance")
 
 class Entrance:
     def __init__(self):
-        self.port = config.getint("ServerSettings", "port")
+        self.port = Config.getint("ServerSettings", "port")
         self.s = None
 
         info(logger, "Entrance is initiated")
@@ -26,7 +26,7 @@ class Entrance:
         info(logger, "Socket is listening")
 
     def accept_incoming_connections(self):
-        info(logger, "Waiting for incoming connections\n")
+        info(logger, "Waiting for incoming connections")
         while True:
             c, addr = self.s.accept()
             info(logger, "Incoming connection from", addr)

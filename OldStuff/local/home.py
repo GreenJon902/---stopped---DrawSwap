@@ -7,11 +7,11 @@ import info, stats, options
 
 
 def oppClicked(c):
-    c.config(background="#F0F0F0")
+    c.Config(background="#F0F0F0")
 
 
 def oppReleased(c, window):
-    c.config(background="#3c3f41")
+    c.Config(background="#3c3f41")
 
     options.main(window.winfo_geometry(), window)
 

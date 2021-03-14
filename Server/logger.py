@@ -24,7 +24,7 @@ class TimeFormatter(logging.Formatter):
 logFormatter = TimeFormatter("[%(threadName)-12.12s] [%(levelname)-7s] [%(name)-10s] [%(asctime)s]  %(message)s",
                              datefmt='%s %f')
 rootLogger = logging.getLogger()
-rootLogger.setLevel(logging.DEBUG)
+rootLogger.setLevel(logging.INFO)
 
 fileHandler = logging.FileHandler("{0}/{1}.log".format("./", "latest"))
 fileHandler.setFormatter(logFormatter)
