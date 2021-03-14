@@ -1,6 +1,9 @@
 import datetime
 import logging
+import os
 import sys
+
+from config import save_folder, log_folder
 
 
 class TimeFormatter(logging.Formatter):
@@ -26,7 +29,7 @@ logFormatter = TimeFormatter("[%(threadName)-12.12s] [%(levelname)-7s] [%(name)-
 rootLogger = logging.getLogger()
 rootLogger.setLevel(logging.INFO)
 
-fileHandler = logging.FileHandler("{0}/{1}.log".format("./", "latest"))
+fileHandler = logging.FileHandler(os.path.join(save_folder, "logs", str(len(os.listdir(log_folder))) + ".log"))
 fileHandler.setFormatter(logFormatter)
 rootLogger.addHandler(fileHandler)
 
@@ -34,4 +37,3 @@ consoleHandler = logging.StreamHandler(sys.stdout)
 consoleHandler.setFormatter(logFormatter)
 rootLogger.addHandler(consoleHandler)
 
-rootLogger.info("Setup Logger")
