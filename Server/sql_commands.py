@@ -1,8 +1,13 @@
 #  --------------- Make New --------------------------------------------------------------------------------------------
 
+create_database = """
+CREATE DATABASE DrawSwap;
+"""
+
+
 make_new_users_table = """
 CREATE TABLE Users (
-    uuid uniqueidentifier,
+    uuid binary(16),
     nickname varchar(32),
     dateJoined datetime,
     password binary(16)
