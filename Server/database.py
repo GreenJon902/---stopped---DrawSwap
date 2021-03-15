@@ -65,5 +65,6 @@ def connect():
 
 def stop():
     conn.commit()
+    c.close()
     conn.close()
     info(logger, "Successfully closed the connection to the database")
