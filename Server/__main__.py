@@ -32,6 +32,7 @@ if __name__ == "__main__":
     from loggerFunctions import info
     from entrance import Entrance
     import database
+    database.connect()
 
     info(mainLogger, "Imported all modules!")
 

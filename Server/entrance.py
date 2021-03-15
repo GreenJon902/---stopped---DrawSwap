@@ -2,6 +2,7 @@ import logging
 import socket
 import uuid
 
+import database
 from config import Config
 from functions import recv, send
 from loggerFunctions import info
@@ -39,7 +40,11 @@ class Entrance:
             if request == 1:
                 info(logger, "Code", request, "means that a new uuid was requested by the client")
 
-                new_uuid = uuid.uuid4()
+                while True:
+                    new_uuid = uuid.uuid4()
+                    if not database.check_for_uuid(new_uuid):
+                        break
+
                 info(logger, "Generated new uuid -", new_uuid)
                 send(c, new_uuid)
 
@@ -47,5 +52,7 @@ class Entrance:
                 info(logger, "Received password")
 
                 c.close()
+
+
 
             info(logger, )
