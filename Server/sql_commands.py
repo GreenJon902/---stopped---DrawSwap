@@ -1,14 +1,5 @@
 #  --------------- Make New --------------------------------------------------------------------------------------------
 
-create_database = """
-CREATE DATABASE DrawSwap;
-"""
-
-drop_database = """
-DROP DATABASE DrawSwap;
-"""
-
-
 make_new_users_table = """
 CREATE TABLE Users (
     uuid binary(16),
