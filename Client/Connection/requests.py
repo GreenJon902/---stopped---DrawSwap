@@ -19,7 +19,8 @@ def new_uuid(s):
     Logger.info("Connection: New uuid requested")
 
     new_uuid = recv(s)
-    Settings.set("Account", "uuid", new_uuid)
+    Logger.info("Connection: New uuid us " + str(new_uuid))
+    Settings.set("Account", "uuid", str(new_uuid))
     Logger.info("Connection: New uuid received and saved")
 
     send(s, password)
