@@ -31,12 +31,12 @@ if __name__ == "__main__":
 
     from loggerFunctions import info
     from entrance import Entrance
-    import sql
+    import database
 
     info(mainLogger, "Imported all modules!")
 
     if make_new:
-        sql.make_new(config.dev_mode)
+        database.make_new(config.dev_mode)
 
     info(mainLogger, "Starting DrawSwap server!")
 
