@@ -19,7 +19,7 @@ CREATE TABLE games (
 #  --------------- New Account -----------------------------------------------------------------------------------------
 
 check_for_uuid = """
-SELECT 1 FROM users WHERE uuid={a}
+SELECT 1 FROM users WHERE uuid="{a}"
 """
 
 add_new_user = """

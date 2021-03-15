@@ -56,3 +56,6 @@ class Entrance:
 
 
             info(logger, )
+
+    def stop(self):
+        self.s.close()

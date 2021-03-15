@@ -41,6 +41,12 @@ if __name__ == "__main__":
 
     info(mainLogger, "Starting DrawSwap server!")
 
-    e = Entrance()
-    e.start()
-    e.accept_incoming_connections()
+    try:
+        e = Entrance()
+        e.start()
+        e.accept_incoming_connections()
+
+    finally:
+        e.stop()
+        database.stop()
+        info(mainLogger, "Successfully stopped DrawSwapServer")

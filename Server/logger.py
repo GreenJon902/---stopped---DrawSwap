@@ -27,7 +27,7 @@ class TimeFormatter(logging.Formatter):
 logFormatter = TimeFormatter("[%(threadName)-12.12s] [%(levelname)-7s] [%(name)-10s] [%(asctime)s]  %(message)s",
                              datefmt='%s %f')
 rootLogger = logging.getLogger()
-rootLogger.setLevel(logging.INFO)
+rootLogger.setLevel(logging.DEBUG)
 
 fileHandler = logging.FileHandler(os.path.join(save_folder, "logs", str(len(os.listdir(log_folder))) + ".log"))
 fileHandler.setFormatter(logFormatter)

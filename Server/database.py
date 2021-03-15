@@ -6,16 +6,22 @@ import mysql.connector as mysql
 
 import config
 import sql_commands
-from loggerFunctions import info, warning
+from loggerFunctions import info, warning, debug
 
 logger = logging.getLogger("sql")
 c = None
 conn = None
 
 
-def execute(command, ignore=None):
+class NoException(Exception):
+    pass
+
+
+def execute(command, ignore=NoException):
     try:
-        return c.execute(command)
+        result = c.execute(command)
+        debug(logger, "Executing", command, "while ignoring", ignore, ". Result was", result)
+        return result
     except ignore as e:
         warning(logger, "\n\nIgnored sql command error: ", command, e, "\n")
         return None
@@ -40,13 +46,10 @@ def make_new(dev_mode):
     conn.commit()
     info(logger, "Successfully ran and committed sql")
 
-    conn.close()
-    info(logger, "Successfully closed the connection to the database")
-
 
 def check_for_uuid(uuid):
     result = execute(sql_commands.check_for_uuid.format(a=uuid))
-    print(result)
+    return False if result is None else True
 
 
 def connect():
@@ -59,3 +62,8 @@ def connect():
     conn = mysql.connect(**sql_login)
     c = conn.cursor()
 
+
+def stop():
+    conn.commit()
+    conn.close()
+    info(logger, "Successfully closed the connection to the database")
