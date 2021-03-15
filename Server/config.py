@@ -20,7 +20,7 @@ default_db_login = """
 host=
 user=
 password=
-database=
+database=DrawSwap
 """
 
 

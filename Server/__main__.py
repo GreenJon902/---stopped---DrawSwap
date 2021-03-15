@@ -9,13 +9,16 @@ if __name__ == "__main__":
 
         shutil.rmtree(config.save_folder)
 
-    make_new = False
+    make_new = True #TESTING PURPOSES
     if not os.path.exists(config.save_folder) or make_new:
         print("Save folder is not here, making a new one")
 
         make_new = True
-        os.makedirs(config.save_folder)
-        os.makedirs(config.log_folder)
+        try:
+            os.makedirs(config.save_folder)
+            os.makedirs(config.log_folder)
+        except FileExistsError:
+            print("Cant make folder, already exists")
         config.make_new(config.dev_mode)
 
     import logger
@@ -32,7 +35,8 @@ if __name__ == "__main__":
 
     info(mainLogger, "Imported all modules!")
 
-    sql.make_new(config.dev_mode)
+    if make_new:
+        sql.make_new(config.dev_mode)
 
     info(mainLogger, "Starting DrawSwap server!")
 

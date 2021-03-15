@@ -2,7 +2,7 @@ import logging
 import os
 from configparser import ConfigParser
 
-import mysql.connector
+import mysql.connector as mysql
 
 import config
 import sql_commands
@@ -18,6 +18,7 @@ def make_new(dev_mode):
 
         with open(os.path.join(config.save_folder, "dbLogin.ini"), "w") as f:
             f.write(config.default_db_login)
+            f.close()
 
         info(logger, "Create dbLogin.ini because it was not there or dev_mode was enabled")
         input("Press enter when you have entered the db login details")
@@ -40,9 +41,8 @@ def make_new(dev_mode):
 def connect():
     c = ConfigParser()
     c.read(os.path.join(config.save_folder, "dbLogin.ini"))
-    sql_login = c.options("Login")
-    print(sql_login)
+    sql_login = dict(c.items("Login"))
 
-    conn = mysql.connector.connect(**sql_login)
+    conn = mysql.connect(**sql_login)
 
     return conn
