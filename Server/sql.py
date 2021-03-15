@@ -6,9 +6,16 @@ import mysql.connector as mysql
 
 import config
 import sql_commands
-from loggerFunctions import info
+from loggerFunctions import info, warning
 
 logger = logging.getLogger("sql")
+
+
+def execute(c, command, ignore=None):
+    try:
+        c.execute(command)
+    except ignore as e:
+        warning(logger, "\n\nIgnored sql command error: ", command, e, "\n")
 
 
 def make_new(dev_mode):
@@ -28,8 +35,8 @@ def make_new(dev_mode):
     c = conn.cursor()
     info(logger, "Successfully connected to the database")
 
-    c.execute(sql_commands.make_new_users_table)
-    c.execute(sql_commands.make_new_games_table)
+    execute(c, sql_commands.make_new_users_table, ignore=mysql.ProgrammingError)
+    execute(c, sql_commands.make_new_games_table, ignore=mysql.ProgrammingError)
 
     conn.commit()
     info(logger, "Successfully ran and committed sql")
